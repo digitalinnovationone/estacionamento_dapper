@@ -1,0 +1,27 @@
+﻿@model estacionamento_dapper.Models.ValorDoMinuto
+
+@{
+    ViewData["Title"] = "Incluir Valor do minuto";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Novo valor</h1>
+</div>
+
+<div class="text-left">
+
+    <form asp-action="Criar" asp-controller="ValorDoMinuto" method="post">
+        <div class="form-group">
+            <label for="Minutos">Minutos</label>
+            <input type="number" class="form-control" id="Minutos" asp-for="Minutos" required>
+        </div>
+
+        <div class="form-group">
+            <label for="Valor">Valor</label>
+            <input type="text" class="form-control" id="Valor" asp-for="Valor" required>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </form>
+
+</div>

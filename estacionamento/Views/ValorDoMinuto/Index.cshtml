@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ValorDoMinuto>
+
+@{
+    ViewData["Title"] = "Valor do minuto";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Valor do minuto</h1>
+    <a class="btn btn-primary" asp-controller="ValorDoMinuto" asp-action="Novo">Novo</a>
+</div>
+
+<div class="text-center">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Minutos</th>
+                <th>Valor</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model){
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Minutos</td>
+                    <td>@item.Valor.ToString("C", new System.Globalization.CultureInfo("pt-BR"))</td>
+                    <td>
+                        <a class="btn btn-warning" asp-route-id="@item.Id" asp-action="Editar" asp-controller="ValorDoMinuto">Alterar</a>
+                    </td>
+                    <td>
+                        <form onsubmit="return confirm('Confirma?')" asp-route-id="@item.Id" asp-action="Apagar" asp-controller="ValorDoMinuto"method="post">
+                            <button type="submit" class="btn btn-danger">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
