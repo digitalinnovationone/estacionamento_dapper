@@ -7,20 +7,20 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace estacionamento_dapper.Controllers;
 
-[Route("/valores")]
-public class ValorDoMinutoController : Controller
+[Route("/clientes")]
+public class ClientesController : Controller
 {
-    private readonly IRepositorio<ValorDoMinuto> _repo;
+    private readonly IRepositorio<Cliente> _repo;
 
-    public ValorDoMinutoController(IRepositorio<ValorDoMinuto> repo)
+    public ClientesController(IRepositorio<Cliente> repo)
     {
         _repo = repo;
     }
 
     public IActionResult Index()
     {
-        var valores = _repo.ObterTodos();
-        return View(valores);
+        var clientes = _repo.ObterTodos();
+        return View(clientes);
     }
 
     [HttpGet("novo")]    
@@ -29,11 +29,11 @@ public class ValorDoMinutoController : Controller
         return View();
     }
 
-    [HttpPost("Criar")]    
-    public IActionResult Criar([FromForm] ValorDoMinuto valorDoMinuto)
+    [HttpPost("criar")]    
+    public IActionResult Criar([FromForm] Cliente cliente)
     {
-        _repo.Inserir(valorDoMinuto);
-        return Redirect("/valores");
+        _repo.Inserir(cliente);
+        return Redirect("/clientes");
     }
 
     [HttpPost("{id}/apagar")]    
@@ -41,7 +41,7 @@ public class ValorDoMinutoController : Controller
     {
         _repo.Excluir(id);
 
-        return Redirect("/valores");
+        return Redirect("/clientes");
     }
 
     [HttpGet("{id}/editar")]    
@@ -52,12 +52,12 @@ public class ValorDoMinutoController : Controller
     }
 
     [HttpPost("{id}/alterar")]    
-    public IActionResult Alterar([FromRoute] int id, [FromForm] ValorDoMinuto valorDoMinuto)
+    public IActionResult Alterar([FromRoute] int id, [FromForm] Cliente cliente)
     {
-        valorDoMinuto.Id = id;
+        cliente.Id = id;
 
-        _repo.Atualizar(valorDoMinuto);
+        _repo.Atualizar(cliente);
 
-        return Redirect("/valores");
+        return Redirect("/clientes");
     }
 }

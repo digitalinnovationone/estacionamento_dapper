@@ -1,0 +1,27 @@
+﻿@model estacionamento_dapper.Models.Cliente
+
+@{
+    ViewData["Title"] = "Incluir Cliente";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Novo cliente</h1>
+</div>
+
+<div class="text-left">
+
+    <form asp-action="Criar" asp-controller="Clientes" method="post">
+        <div class="form-group">
+            <label for="Nome">Nome</label>
+            <input type="text" class="form-control" id="Nome" asp-for="Nome" required>
+        </div>
+
+        <div class="form-group">
+            <label for="Cpf">Cpf</label>
+            <input type="text" class="form-control" id="Cpf" asp-for="Cpf" required>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </form>
+
+</div>

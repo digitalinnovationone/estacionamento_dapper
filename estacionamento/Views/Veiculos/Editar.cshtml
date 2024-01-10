@@ -1,0 +1,37 @@
+﻿@model estacionamento_dapper.Models.Veiculo
+
+@{
+    ViewData["Title"] = "Editando Veiculo";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Editando Veiculo</h1>
+</div>
+
+<div class="text-left">
+
+    <form asp-action="Alterar" asp-controller="Veiculos" asp-route-id="@Model.Id" method="post">
+        <div class="form-group">
+            <label for="Placa">Placa</label>
+            <input type="text" class="form-control" id="Placa" value="@Model.Placa" asp-for="Placa" required>
+        </div>
+
+        <div class="form-group">
+            <label for="Marca">Marca</label>
+            <input type="text" class="form-control" id="Marca" value="@Model.Marca" asp-for="Marca" required>
+        </div>
+
+        <div class="form-group">
+            <label for="Modelo">Modelo</label>
+            <input type="text" class="form-control" id="Modelo" value="@Model.Modelo" asp-for="Modelo" required>
+        </div>
+
+        <div class="form-group">
+            <label for="ClienteId">ClienteId</label>
+            <input type="text" class="form-control" id="ClienteId" value="@Model.ClienteId" asp-for="ClienteId" required>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </form>
+
+</div>

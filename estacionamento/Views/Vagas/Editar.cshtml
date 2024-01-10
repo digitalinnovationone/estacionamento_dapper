@@ -1,0 +1,27 @@
+﻿@model estacionamento_dapper.Models.Vaga
+
+@{
+    ViewData["Title"] = "Editando Vaga";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Editando vaga</h1>
+</div>
+
+<div class="text-left">
+
+    <form asp-action="Alterar" asp-controller="Vagas" asp-route-id="@Model.Id" method="post">
+        <div class="form-group">
+            <label for="CodigoLocalizacao">Codigo da Localização</label>
+            <input type="text" class="form-control" id="CodigoLocalizacao" value="@Model.CodigoLocalizacao" asp-for="CodigoLocalizacao" required>
+        </div>
+
+        <div class="form-group">
+            <label for="Ocupada">Ocupada</label>
+            <input type="checkbox" id="Ocupada" value="@Model.Ocupada" asp-for="Ocupada">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </form>
+
+</div>

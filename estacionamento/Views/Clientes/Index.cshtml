@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Cliente>
+
+@{
+    ViewData["Title"] = "Clientes";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Clientes</h1>
+    <a class="btn btn-primary" asp-controller="Clientes" asp-action="Novo">Novo</a>
+</div>
+
+<div class="text-center">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model){
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Nome</td>
+                    <td>@item.Cpf</td>
+                    <td>
+                        <a class="btn btn-warning" asp-route-id="@item.Id" asp-action="Editar" asp-controller="Clientes">Alterar</a>
+                    </td>
+                    <td>
+                        <form onsubmit="return confirm('Confirma?')" asp-route-id="@item.Id" asp-action="Apagar" asp-controller="Clientes" method="post">
+                            <button type="submit" class="btn btn-danger">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

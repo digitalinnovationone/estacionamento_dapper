@@ -1,0 +1,37 @@
+﻿@model estacionamento_dapper.Models.Veiculo
+
+@{
+    ViewData["Title"] = "Incluir Veiculo";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Novo Veiculo</h1>
+</div>
+
+<div class="text-left">
+
+    <form asp-action="Criar" asp-controller="Veiculos" method="post">
+        <div class="form-group">
+            <label for="Placa">Placa</label>
+            <input type="text" class="form-control" id="Placa" asp-for="Placa" required>
+        </div>
+
+        <div class="form-group">
+            <label for="Marca">Marca</label>
+            <input type="text" class="form-control" id="Marca" asp-for="Marca" required>
+        </div>
+
+        <div class="form-group">
+            <label for="Modelo">Modelo</label>
+            <input type="text" class="form-control" id="Modelo" asp-for="Modelo" required>
+        </div>
+
+        <div class="form-group">
+            <label for="ClienteId">ClienteId</label>
+            <input type="text" class="form-control" id="ClienteId" asp-for="ClienteId" required>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </form>
+
+</div>

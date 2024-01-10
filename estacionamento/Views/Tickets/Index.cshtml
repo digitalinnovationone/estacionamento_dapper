@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Ticket>
+
+@{
+    ViewData["Title"] = "Tickets";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Tickets</h1>
+    <a class="btn btn-primary" asp-controller="Tickets" asp-action="Novo">Novo</a>
+</div>
+
+<div class="text-center">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome do cliente</th>
+                <th>Placa do carro</th>
+                <th>Marca do carro</th>
+                <th>Modelo do carro</th>
+                <th>Horário Entrada</th>
+                <th>Local</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model){
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Veiculo.Cliente.Nome</td>
+                    <td>@item.Veiculo.Placa</td>
+                    <td>@item.Veiculo.Marca</td>
+                    <td>@item.Veiculo.Modelo</td>
+                    <td>
+                        <a class="btn btn-warning" asp-route-id="@item.Id" asp-action="Editar" asp-controller="Tickets">Alterar</a>
+                    </td>
+                    <td>
+                        <form onsubmit="return confirm('Confirma?')" asp-route-id="@item.Id" asp-action="Apagar" asp-controller="Tickets" method="post">
+                            <button type="submit" class="btn btn-danger">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

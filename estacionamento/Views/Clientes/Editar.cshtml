@@ -1,0 +1,27 @@
+﻿@model estacionamento_dapper.Models.Cliente
+
+@{
+    ViewData["Title"] = "Editando Cliente";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Editando cliente</h1>
+</div>
+
+<div class="text-left">
+
+    <form asp-action="Alterar" asp-controller="Clientes" asp-route-id="@Model.Id" method="post">
+        <div class="form-group">
+            <label for="Nome">Nome</label>
+            <input type="text" class="form-control" id="Nome" value="@Model.Nome" asp-for="Nome" required>
+        </div>
+
+        <div class="form-group">
+            <label for="Cpf">Cpf</label>
+            <input type="text" class="form-control" id="Cpf" value="@Model.Cpf" asp-for="Cpf" required>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </form>
+
+</div>

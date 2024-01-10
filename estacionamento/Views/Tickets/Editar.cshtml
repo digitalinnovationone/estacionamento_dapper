@@ -1,0 +1,22 @@
+﻿@model estacionamento_dapper.Models.Ticket
+
+@{
+    ViewData["Title"] = "Editando Ticket";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Editando ticket</h1>
+</div>
+
+<div class="text-left">
+
+    <form asp-action="Alterar" asp-controller="Tickets" asp-route-id="@Model.Id" method="post">
+        <div class="form-group">
+            <label for="DataSaida">DataSaida</label>
+            <input type="datetime-local" class="form-control" id="DataSaida" value="@Model.DataSaida" asp-for="DataSaida" required>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </form>
+
+</div>
