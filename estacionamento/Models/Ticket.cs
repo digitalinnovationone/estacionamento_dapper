@@ -9,5 +9,6 @@ public class Ticket
     public DateTime? DataSaida { get; set; } // Nullable para permitir valores nulos
     public float Valor { get; set; } = default!;
     public int VeiculoId { get; set; } = default!;
+    public Veiculo Veiculo { get; set; } = default!;
     public int VagaId { get; set; } = default!;
 }

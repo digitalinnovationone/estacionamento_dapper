@@ -9,4 +9,5 @@ public class Veiculo
     public string Modelo { get; set; } = default!;
     public string Marca { get; set; } = default!;
     public int ClienteId { get; set; } = default!;
+    public Cliente Cliente { get; set; } = default!;
 }
