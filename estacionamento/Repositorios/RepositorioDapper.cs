@@ -40,7 +40,7 @@ public class RepositorioDapper<T> : IRepositorio<T>
     public T ObterPorId(int id)
     {
         var sql = $"SELECT * FROM {_nomeTabela} WHERE Id = @Id";
-        return _conexao.QueryFirstOrDefault<T>(sql, new { Id = id });
+        return _conexao.QueryFirstOrDefault<T>(sql, new { Id = id })!;
     }
 
     public void Inserir(T entidade)
