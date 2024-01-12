@@ -13,28 +13,36 @@
     <form asp-action="Criar" asp-controller="Tickets" method="post">
         <div class="form-group">
             <label for="Nome">Nome do cliente</label>
-            <input type="text" class="form-control" id="Nome" required>
+            <input type="text" class="form-control" id="Nome" name="Nome" required>
         </div>
 
         <div class="form-group">
             <label for="Nome">CPF do cliente</label>
-            <input type="text" class="form-control" id="Cpf" required>
+            <input type="text" class="form-control" id="Cpf" name="Cpf" >
         </div>
 
         <div class="form-group">
             <label for="Nome">Placa do veículo</label>
-            <input type="text" class="form-control" id="Placa" required>
+            <input type="text" class="form-control" id="Placa" name="Placa" required>
         </div>
 
         <div class="form-group">
             <label for="Nome">Modelo do veículo</label>
-            <input type="text" class="form-control" id="Modelo" required>
+            <input type="text" class="form-control" id="Modelo" name="Modelo" required>
         </div>
 
         <div class="form-group">
             <label for="Nome">Marca do veículo</label>
-            <input type="text" class="form-control" id="Marca" required>
+            <input type="text" class="form-control" id="Marca" name="Marca" required>
         </div>
+
+        <div class="form-group">
+            <label for="Nome">Vaga</label>
+            <select name="VagaId" asp-items="ViewBag.Vagas" class="form-control" required>
+                <option value="">[Selecione uma vaga]</option>
+            </select>
+        </div>
+
         <br>
         <button type="submit" class="btn btn-primary">Salvar</button>
     </form>

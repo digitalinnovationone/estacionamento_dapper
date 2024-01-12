@@ -20,8 +20,8 @@
                 <th>Modelo do carro</th>
                 <th>Horário Entrada</th>
                 <th>Local</th>
-                <th></th>
-                <th></th>
+                <th>Data Saida</th>
+                <th>Valor Total</th>
             </tr>
         </thead>
         <tbody>
@@ -32,11 +32,17 @@
                     <td>@item.Veiculo.Placa</td>
                     <td>@item.Veiculo.Marca</td>
                     <td>@item.Veiculo.Modelo</td>
-                    <td>
-                        <a class="btn btn-warning" asp-route-id="@item.Id" asp-action="Editar" asp-controller="Tickets">Alterar</a>
-                    </td>
-                    <td>
-                        <form onsubmit="return confirm('Confirma?')" asp-route-id="@item.Id" asp-action="Apagar" asp-controller="Tickets" method="post">
+                    <td>@item.Vaga.CodigoLocalizacao</td>
+                    <td>@item.DataEntrada.ToString("dd/MM/yyyy HH:MM")</td>
+                    <td>@item.DataSaida?.ToString("dd/MM/yyyy HH:MM")</td>
+                    <td style="font-size: 30px;">
+                        @item.ValorTotal(ViewBag.ValorDoMinuto).ToString("C", new System.Globalization.CultureInfo("pt-BR"))
+                        
+                        <hr>
+                        <form onsubmit="return confirm('Confirma Pagamento?')" asp-route-id="@item.Id" asp-action="Pago" asp-controller="Tickets" method="post">
+                            <button type="submit" class="btn btn-success" style="font-size: 30px;">R$ Pago</button>
+                        </form>
+                        <form onsubmit="return confirm('Confirma Exclusão?')" asp-route-id="@item.Id" asp-action="Apagar" asp-controller="Tickets" method="post">
                             <button type="submit" class="btn btn-danger">Excluir</button>
                         </form>
                     </td>
